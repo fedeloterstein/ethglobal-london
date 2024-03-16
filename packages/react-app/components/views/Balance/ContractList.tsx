@@ -36,13 +36,13 @@ export const ContractList = ({data}: any) => {
         </Stack>
 
         <Text fontSize={"18px"} color={"black"} fontWeight={700}>
-          Contracts
+        Contract approvals
         </Text>
       </HStack>
       <Stack gap={4}>
-        <ContractItem />
-        <ContractItem />
-        <ContractItem />
+        <ContractItem title={'Landing Page'} days='5' usd='450'/>
+        <ContractItem title={'QA test'} days='10' usd='250'/>
+        <ContractItem  title={'Backend stripe'} days='25' usd='1350'/>
       </Stack>
       <Button
         as={Link}

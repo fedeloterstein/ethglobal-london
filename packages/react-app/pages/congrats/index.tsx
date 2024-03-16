@@ -15,8 +15,8 @@ export default function Congrats() {
         <Image alt="" src={"/images/congrants.png"} width={375} height={342} />
 
         <Stack>
-          <Heading fontSize={"36px"} fontWeight={700} color={'white'}>
-            🤝 Thanks for build a
+          <Heading fontSize={"36px"} fontWeight={700} color={'white'} alignSelf={'center'}>
+            🤝 
           </Heading>
           <Heading
             fontSize={"36px"}
@@ -26,7 +26,7 @@ export default function Congrats() {
               "linear-gradient(93deg, #BD36CD 0.58%, #00CBFE 99.87%)"
             }
           >
-            Fair & Better World
+         You make it
           </Heading>
         </Stack>
         <Button
@@ -38,7 +38,7 @@ export default function Congrats() {
           color={"white"}
           background={"black"}
         >
-          I´m Hired Happy
+     Great!
         </Button>
       </Stack>
     </Layout>

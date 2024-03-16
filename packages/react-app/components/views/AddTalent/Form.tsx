@@ -79,7 +79,7 @@ export const Form = () => {
           </Stack>
 
           <Text fontSize={"18px"} color={"black"} fontWeight={700}>
-            Role details
+          Contractor Details
           </Text>
         </HStack>
         <Stack gap={4}>
@@ -137,7 +137,7 @@ export const Form = () => {
             }}
             onSuccess={() => router.push("/congrats")}
           >
-            Sign Contract
+           Create Contract
           </Web3Button>
         )}
       </Stack>
