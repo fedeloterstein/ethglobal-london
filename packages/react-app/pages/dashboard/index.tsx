@@ -1,5 +1,6 @@
 import { Header } from "@/components/Header";
 import { Layout } from "@/components/Layout";
+import { BalanceView } from "@/components/views/Balance/BalanceView";
 import { Heading, Stack } from "@chakra-ui/react";
 
 export default function Dashboard() {
@@ -7,7 +8,7 @@ export default function Dashboard() {
     <Layout>
       <Stack>
         <Header />
-        <Heading>Dash</Heading>
+        <BalanceView />
       </Stack>
     </Layout>
   );
