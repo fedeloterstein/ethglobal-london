@@ -32,44 +32,64 @@ contract HireHappy {
         uint256 startDate;
         uint256 lastPaymentDate;
         Status status;
+        string description;
+        address token;
     }
 
     Employee[] public employeeList;
     mapping(address => uint256) public amountBalance;
+    mapping(address => bool) public tokensAccepted; // Lista de tokens aceptados
+    address[] public acceptedTokensList;
 
     uint256 employeeId = 0;
 
     event NewRegisterEmployee(string name, string message);
     event SalaryPaid(uint256 employeeId, uint256 amount);
-    IERC20Interface public tokenAddress;
 
-    constructor(IERC20Interface _tokenAddress) {
-        tokenAddress = _tokenAddress;
+    // Función para agregar un token a la lista de tokens aceptados
+    function addTokenAccepted(address token) public {
+        tokensAccepted[token] = true;
+        acceptedTokensList.push(token);
     }
 
-    function buyEntry(uint256 _amount) public returns (bool) {
-        uint256 senderBalance = tokenAddress.balanceOf(msg.sender);
-        require(senderBalance >= _amount, "Insufficient Balance");
+    // Función para eliminar un token de la lista de tokens aceptados
+    function removeTokenAccepted(address token) public {
+        for (uint256 i = 0; i < acceptedTokensList.length; i++) {
+            if (acceptedTokensList[i] == token) {
+                // Eliminar el token de la lista
+                acceptedTokensList[i] = acceptedTokensList[acceptedTokensList.length - 1];
+                acceptedTokensList.pop();
+                // Eliminar el token del mapeo
+                tokensAccepted[token] = false;
+                return;
+            }
+        }
+    }
 
-        bool success = tokenAddress.transferFrom(
-            msg.sender,
-            address(this),
-            _amount
-        );
-        require(success, "Transfer Failed");
-
-        return true;
+    // Función para verificar si un token está en la lista de tokens aceptados
+    function tokenAceptado(address token) public view returns (bool) {
+        return tokensAccepted[token];
     }
 
     function registerEmployee(
         address payable _employee,
         uint256 _monthlyAmountSalary,
-        string memory _name
-    ) external payable {
-        require(
-            msg.value >= _monthlyAmountSalary,
-            "You must stake the deposit amount"
+        string memory _name,
+        address _token,
+        string memory _description
+    ) public returns (bool) {
+        require(tokenAceptado(_token), "Token no aceptado"); // Verificar si el token está en la lista de tokens aceptados
+
+        uint256 senderBalance = IERC20Interface(_token).balanceOf(msg.sender);
+        require(senderBalance >= _monthlyAmountSalary, "Insufficient Balance");
+
+        bool success = IERC20Interface(_token).transferFrom(
+            msg.sender,
+            address(this),
+            _monthlyAmountSalary
         );
+        require(success, "Transfer Failed");
+
         uint startDate = block.timestamp;
 
         Employee memory newEmployee;
@@ -81,11 +101,14 @@ contract HireHappy {
         newEmployee.startDate = startDate;
         newEmployee.lastPaymentDate = startDate;
         newEmployee.status = Status.Trial;
+        newEmployee.description = _description;
+        newEmployee.token = _token;
 
         employeeList.push(newEmployee);
-        amountBalance[address(newEmployee.employee)] += msg.value;
+        amountBalance[address(newEmployee.employee)] += _monthlyAmountSalary;
         employeeId++;
         emit NewRegisterEmployee(_name, "was registered correctly");
+        return true;
     }
 
     function cancelEmployee(uint256 _employeeId) external {
@@ -191,5 +214,26 @@ contract HireHappy {
         }
 
         return result;
+    }
+
+    function getActiveTokens() public view returns (address[] memory) {
+        // Crear un array dinámico para almacenar los tokens activos
+        address[] memory activeTokens = new address[](acceptedTokensList.length);
+
+        // Iterar sobre la lista de tokens aceptados y recopilar las direcciones de los tokens activos
+        uint256 activeTokenCount = 0;
+        for (uint256 i = 0; i < acceptedTokensList.length; i++) {
+            if (tokensAccepted[acceptedTokensList[i]]) {
+                activeTokens[activeTokenCount] = acceptedTokensList[i];
+                activeTokenCount++;
+            }
+        }
+
+        // Redimensionar el array para eliminar las posiciones no utilizadas
+        assembly {
+            mstore(activeTokens, activeTokenCount)
+        }
+
+        return activeTokens;
     }
 }
