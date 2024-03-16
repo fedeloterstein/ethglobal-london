@@ -13,8 +13,10 @@ import { PeopleIcon } from "@/components/assets/icons/PeopleIcon";
 
 import { useState } from "react";
 import { CheckIcon } from "@/components/assets/icons/CheckIcon";
-import { useContract, useContractRead } from "@thirdweb-dev/react";
+import { Web3Button, useContract, useContractRead } from "@thirdweb-dev/react";
 import { MAIN_CONTRACT, coinsMap } from "@/constants/address";
+import { useRouter } from "next/router";
+import { parseEther } from "viem";
 
 export const Form = () => {
   const { contract } = useContract(MAIN_CONTRACT);
@@ -26,10 +28,11 @@ export const Form = () => {
     title: "",
     walletContractor: "",
     currency: "",
-    amount: "",
-    payment: "",
-    scopeOfWork: "",
+    amount: "1",
   });
+
+  const router = useRouter();
+  const { contract: tokenContract } = useContract(formData.currency, "token");
 
   // Función para manejar cambios en los campos del formulario
   const handleInputChange = (e: any) => {
@@ -70,9 +73,7 @@ export const Form = () => {
             borderRadius={"100px"}
             align={"center"}
             justify={"center"}
-            bgGradient={
-              "linear-gradient(93deg, #BD36CD 0.58%, #00CBFE 99.87%)"
-            }
+            bgGradient={"linear-gradient(93deg, #BD36CD 0.58%, #00CBFE 99.87%)"}
           >
             <PeopleIcon />
           </Stack>
@@ -102,7 +103,9 @@ export const Form = () => {
               placeholder={"Token"}
             >
               {data?.map((a: string, index: any) => (
-                <option value={a} key={index}>{coinsMap[a] as any}</option>
+                <option value={a} key={index}>
+                  {coinsMap[a] as any}
+                </option>
               ))}
             </Select>
             <Input
@@ -112,37 +115,30 @@ export const Form = () => {
               placeholder="Amount"
             />
           </HStack>
-          <Select
-            name="payment"
-            value={formData.payment}
+          <Input
+            name="ee"
             onChange={handleInputChange}
-            placeholder="Payment Monthly"
-          >
-            <option value="option1">6</option>
-            <option value="option2">12</option>
-          </Select>
-          <Textarea
-            name="scopeOfWork"
-            value={formData.scopeOfWork}
-            onChange={handleInputChange}
-            placeholder="Scope of Work"
+            placeholder="Days to payment"
           />
         </Stack>
         {!isFormDataEmpty && (
-          <Button
-            leftIcon={<CheckIcon />}
-            variant="solid"
-            borderRadius={"100px"}
-            color={"white"}
-            background={"black"}
-            href={{
-              pathname: "/dashboard/new/benefits",
-              query: formData,
+          <Web3Button
+            contractAddress={MAIN_CONTRACT}
+            action={async (contract) => {
+              await tokenContract?.setAllowance(MAIN_CONTRACT, 1);
+
+              await contract.call("registerEmployee", [
+                "0xf3789C63EA8856F57EfF0D346Acf5a6F5acD0cDE",
+                parseEther("1"),
+                "juan",
+                formData.currency,
+                "data",
+              ]);
             }}
-            as={Link}
+            onSuccess={() => router.push("/congrats")}
           >
-            Next
-          </Button>
+            Sign Contract
+          </Web3Button>
         )}
       </Stack>
     </form>
