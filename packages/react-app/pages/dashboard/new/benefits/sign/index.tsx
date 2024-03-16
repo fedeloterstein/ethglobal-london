@@ -6,14 +6,14 @@ import { useRouter } from "next/router";
 import React from "react";
 
 export default function Sign() {
-    const router = useRouter()
-    console.log('aca',router.query);
+  const router = useRouter();
+  console.log("aca", router.query);
 
   return (
     <Layout>
       <Stack>
         <Header />
-     <SignView form={router.query}/>
+        <SignView form={router.query} />
       </Stack>
     </Layout>
   );

@@ -12,9 +12,9 @@ export const Header = () => {
     <HStack p={4} justify={"space-between"}>
       <IconLogo />
       {address ? (
-        <HStack>
+        <HStack background={'black'} borderRadius={'9px'} padding={2}>
           <GramerlyIcon />
-          <Text fontSize={"12px"} color={"black"}>
+          <Text fontSize={"12px"} color={"white"}>
             {convertFormat(address)}
           </Text>{" "}
         </HStack>
