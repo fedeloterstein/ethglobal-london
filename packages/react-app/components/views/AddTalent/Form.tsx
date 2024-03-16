@@ -101,8 +101,8 @@ export const Form = () => {
               onChange={handleInputChange}
               placeholder={"Token"}
             >
-              {data?.map((a: string) => (
-                <option value={a}>{coinsMap[a] as any}</option>
+              {data?.map((a: string, index: any) => (
+                <option value={a} key={index}>{coinsMap[a] as any}</option>
               ))}
             </Select>
             <Input
