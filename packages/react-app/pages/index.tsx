@@ -5,8 +5,14 @@ import Image from "next/image";
 import { GramerlyIcon } from "@/components/assets/icons/GramerlyIcon";
 import Link from "next/link";
 import { Layout } from "@/components/Layout";
+import { useAddress, useChain, useChainId } from "@thirdweb-dev/react";
+
+ 
 
 export default function Home() {
+
+
+  
   return (
     <Layout>
       <Stack w={"100%"} height={"100vh"} alignItems={"center"} gap={8} mt={8}>

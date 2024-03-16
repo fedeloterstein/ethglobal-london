@@ -17,6 +17,11 @@ const config: HardhatUserConfig = {
       url: "https://alfajores-forno.celo-testnet.org",
       accounts: [PRIVATE_KEY],
     },
+    'base-sepolia': {
+      url: 'https://sepolia.base.org',
+      accounts: [PRIVATE_KEY],
+      gasPrice: 1000000000,
+    },
   },
 };
 
