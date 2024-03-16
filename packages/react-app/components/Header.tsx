@@ -11,16 +11,9 @@ export const Header = () => {
   return (
     <HStack p={4} justify={"space-between"}>
       <IconLogo />
-      {address ? (
-        <HStack background={'black'} borderRadius={'9px'} padding={2}>
-          <GramerlyIcon />
-          <Text fontSize={"12px"} color={"white"}>
-            {convertFormat(address)}
-          </Text>{" "}
-        </HStack>
-      ) : (
+  
         <ConnectWallet />
-      )}
+
     </HStack>
   );
 };

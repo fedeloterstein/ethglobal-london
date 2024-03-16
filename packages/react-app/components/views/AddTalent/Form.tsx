@@ -13,8 +13,14 @@ import { PeopleIcon } from "@/components/assets/icons/PeopleIcon";
 
 import { useState } from "react";
 import { CheckIcon } from "@/components/assets/icons/CheckIcon";
+import { useContract, useContractRead } from "@thirdweb-dev/react";
+import { MAIN_CONTRACT, coinsMap } from "@/constants/address";
 
 export const Form = () => {
+  const { contract } = useContract(MAIN_CONTRACT);
+  const { data, isLoading } = useContractRead(contract, "getActiveTokens", []);
+  console.log("address", data);
+
   // Estado para almacenar los valores del formulario
   const [formData, setFormData] = useState({
     title: "",
@@ -93,11 +99,11 @@ export const Form = () => {
               name="currency"
               value={formData.currency}
               onChange={handleInputChange}
-              placeholder="USDC"
+              placeholder={"Token"}
             >
-              <option value="option1">Option 1</option>
-              <option value="option2">Option 2</option>
-              <option value="option3">Option 3</option>
+              {data?.map((a: string) => (
+                <option value={a}>{coinsMap[a] as any}</option>
+              ))}
             </Select>
             <Input
               name="amount"
@@ -112,9 +118,8 @@ export const Form = () => {
             onChange={handleInputChange}
             placeholder="Payment Monthly"
           >
-            <option value="option1">Option 1</option>
-            <option value="option2">Option 2</option>
-            <option value="option3">Option 3</option>
+            <option value="option1">6</option>
+            <option value="option2">12</option>
           </Select>
           <Textarea
             name="scopeOfWork"
@@ -136,7 +141,7 @@ export const Form = () => {
             }}
             as={Link}
           >
-           Next
+            Next
           </Button>
         )}
       </Stack>

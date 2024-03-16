@@ -6,7 +6,9 @@ import { ContractItem } from "./ContractItem";
 import Link from "next/link";
 import { AddIcon } from "@/components/assets/icons/AddIcon";
 
-export const ContractList = () => {
+export const ContractList = ({data}: any) => {
+  console.log('empleos', data);
+  
   return (
     <Stack
       background={"white"}
