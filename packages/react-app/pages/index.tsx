@@ -1,8 +1,11 @@
 import PrimaryButton from "@/components/Button";
 import { useWeb3 } from "@/contexts/useWeb3";
-import { ConnectWallet } from "@thirdweb-dev/react";
+import { ConnectWallet, Web3Button, useContract } from "@thirdweb-dev/react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { etherUnits } from "viem";
+
+const tokenAddress = "0x9Fa56e2A9d7563246f2FB898B9f10C9cf41661C1";
 
 export default function Home() {
   const {
@@ -18,6 +21,9 @@ export default function Home() {
   const [signingLoading, setSigningLoading] = useState(false);
   const [userOwnedNFTs, setUserOwnedNFTs] = useState<string[]>([]);
   const [tx, setTx] = useState<any>(undefined);
+
+  const { contract: tokenContract, isLoading: tokenContractLoding } =
+    useContract(tokenAddress, "token");
 
   useEffect(() => {
     getUserAddress().then(async () => {
@@ -72,6 +78,18 @@ export default function Home() {
         There you go... a canvas for your next Minipay project!
       </div>
       <ConnectWallet />
+      <Web3Button
+        contractAddress="0xa65bBd66A9171f8134336A4F24d91A5cb4ADF722"
+        action={async (contract) => {
+          await tokenContract?.setAllowance(
+            "0xa65bBd66A9171f8134336A4F24d91A5cb4ADF722",
+            1
+          );
+          await contract.call("buyEntry", [1000000000000000000]);
+        }}
+      >
+        buyEntry
+      </Web3Button>
       {address && (
         <>
           <div className="h2 text-center">

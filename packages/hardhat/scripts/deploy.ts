@@ -1,9 +1,7 @@
 import { ethers } from "hardhat";
 
 async function main() {
-  const miniPayNFT = await ethers.deployContract("MiniPay", [
-    "0x0D6Dc2f182Eafa687090F95466d5368726C1ca45",
-  ]);
+  const miniPayNFT = await ethers.deployContract("HireHappy", ['0x9Fa56e2A9d7563246f2FB898B9f10C9cf41661C1']);
 
   await miniPayNFT.waitForDeployment();
 
