@@ -14,7 +14,7 @@ export const Header = () => {
       {address ? (
         <HStack>
           <GramerlyIcon />
-          <Text fontSize={"12px"} color={"white"}>
+          <Text fontSize={"12px"} color={"black"}>
             {convertFormat(address)}
           </Text>{" "}
         </HStack>

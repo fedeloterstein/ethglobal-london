@@ -6,7 +6,7 @@ export const BalanceView = () => {
   return (
     <Stack alignItems={'center'} w={'100%'}>
         <Stack justify={'center'} pt={10} pb={10}>
-            <Heading fontWeight={700} fontSize={'24px'} color={'white'}>💸 Balance</Heading>
+            <Heading fontWeight={700} fontSize={'24px'} color={'black'}>💸 Balance</Heading>
         </Stack>
         <ContractList />
     </Stack>
