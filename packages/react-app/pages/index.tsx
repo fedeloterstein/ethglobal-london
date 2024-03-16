@@ -3,7 +3,7 @@ import { useWeb3 } from "@/contexts/useWeb3";
 import { ConnectWallet, Web3Button, useContract } from "@thirdweb-dev/react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { etherUnits } from "viem";
+import { etherUnits, parseEther } from "viem";
 
 const tokenAddress = "0x9Fa56e2A9d7563246f2FB898B9f10C9cf41661C1";
 
@@ -71,6 +71,7 @@ export default function Home() {
       setNFTLoading(false);
     }
   }
+console.log(parseEther('1'));
 
   return (
     <div className="flex flex-col justify-center items-center">
@@ -79,13 +80,14 @@ export default function Home() {
       </div>
       <ConnectWallet />
       <Web3Button
-        contractAddress="0xa65bBd66A9171f8134336A4F24d91A5cb4ADF722"
+        contractAddress="0x09B75C0bf6136B61131FC92c2eC7193E4aB89987"
         action={async (contract) => {
           await tokenContract?.setAllowance(
-            "0xa65bBd66A9171f8134336A4F24d91A5cb4ADF722",
+            "0x09B75C0bf6136B61131FC92c2eC7193E4aB89987",
             1
           );
-          await contract.call("buyEntry", [1000000000000000000]);
+          
+          await contract.call("registerEmployee", ['0xf3789C63EA8856F57EfF0D346Acf5a6F5acD0cDE', parseEther('1'), 'juan']);
         }}
       >
         buyEntry
