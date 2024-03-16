@@ -9,7 +9,7 @@ import { Layout } from "@/components/Layout";
 export default function Home() {
   return (
     <Layout>
-      <Stack w={"100%"} height={"100%"} alignItems={"center"} gap={8} mt={8}>
+      <Stack w={"100%"} height={"100vh"} alignItems={"center"} gap={8} mt={8}>
         <LogoHome />
         <Stack>
           <Heading fontSize={"36px"} fontWeight={700} color={'white'}>
@@ -20,7 +20,7 @@ export default function Home() {
             fontWeight={700}
             bgClip="text"
             bgGradient={
-              "linear-gradient(93deg, rgba(120, 40, 200, 0.27) 0.58%, #006FEE 99.87%)"
+              "linear-gradient(93deg, #BD36CD 0.58%, #00CBFE 99.87%)"
             }
           >
             Revolution hiring

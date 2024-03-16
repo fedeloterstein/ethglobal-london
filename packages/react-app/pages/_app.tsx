@@ -11,7 +11,7 @@ function App({ Component, pageProps }: AppProps) {
         activeChain={CeloAlfajoresTestnet}
         clientId={process.env.NEXT_PUBLIC_TEMPLATE_CLIENT_ID}
       >
-        <Stack background={'black'} h={'100vh'}>
+        <Stack background={'black'} h={'100%'}>
 
         <Component {...pageProps} />
         </Stack>

@@ -17,12 +17,12 @@ export const SignView = ({ form }: any) => {
 useContract(form.currency, "token");
 
   return (
-    <Stack alignItems={"center"} w={"100%"} gap={8} pb={10}>
+    <Stack alignItems={"center"} w={"100%"} h={'100vh'} gap={8} pb={10}>
       <Stack justify={"center"} pt={10} pb={10} textAlign={"center"}>
-        <Heading fontWeight={700} fontSize={"24px"} color={"black"}>
+        <Heading fontWeight={700} fontSize={"24px"} color={"white"}>
           ✍️ Review and Sign
         </Heading>
-        <Text fontWeight={400} fontSize={"14px"} color={"black"}>
+        <Text fontWeight={400} fontSize={"14px"} color={"white"}>
           You are one step away from finalizing your agreement to start hiring
           happy.
         </Text>

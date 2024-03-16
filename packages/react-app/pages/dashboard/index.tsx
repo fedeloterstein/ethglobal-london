@@ -11,7 +11,7 @@ export default function Dashboard() {
 
   return (
     <Layout>
-      <Stack>
+      <Stack h={'100vh'}>
         <Header />
         <BalanceView data={data} />
       </Stack>

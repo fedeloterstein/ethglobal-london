@@ -10,7 +10,7 @@ export const Review = ({form}: any) => {
       background={"white"}
       opacity={"90%"}
       w={"100%"}
-      h={"100%"}
+
       p={8}
       borderRadius={"14px"}
       border={`2px solid var(--Line-gradient, rgba(120, 40, 200, 0.27))`}
@@ -24,7 +24,7 @@ export const Review = ({form}: any) => {
           align={"center"}
           justify={"center"}
           bgGradient={
-            "linear-gradient(93deg, rgba(120, 40, 200, 0.27) 0.58%, #006FEE 99.87%)"
+            "linear-gradient(93deg, #BD36CD 0.58%, #00CBFE 99.87%)"
           }
         >
           <ContractIcon />
@@ -38,7 +38,7 @@ export const Review = ({form}: any) => {
         <Text
           bgClip="text"
           bgGradient={
-            "linear-gradient(93deg, rgba(120, 40, 200, 0.27) 0.58%, #006FEE 99.87%)"
+            "linear-gradient(93deg, #BD36CD 0.58%, #00CBFE 99.87%)"
           }
           fontWeight={700}
           fontSize={"16px"}
@@ -54,7 +54,7 @@ export const Review = ({form}: any) => {
         <Text
           bgClip="text"
           bgGradient={
-            "linear-gradient(93deg, rgba(120, 40, 200, 0.27) 0.58%, #006FEE 99.87%)"
+            "linear-gradient(93deg, #BD36CD 0.58%, #00CBFE 99.87%)"
           }
           fontWeight={700}
           fontSize={"16px"}
@@ -69,7 +69,7 @@ export const Review = ({form}: any) => {
         <Text
           bgClip="text"
           bgGradient={
-            "linear-gradient(93deg, rgba(120, 40, 200, 0.27) 0.58%, #006FEE 99.87%)"
+            "linear-gradient(93deg, #BD36CD 0.58%, #00CBFE 99.87%)"
           }
           fontWeight={700}
           fontSize={"16px"}
@@ -81,7 +81,7 @@ export const Review = ({form}: any) => {
       <Text
         bgClip="text"
         bgGradient={
-          "linear-gradient(93deg, rgba(120, 40, 200, 0.27) 0.58%, #006FEE 99.87%)"
+          "linear-gradient(93deg, #BD36CD 0.58%, #00CBFE 99.87%)"
         }
         fontWeight={700}
         fontSize={"16px"}
@@ -94,7 +94,7 @@ export const Review = ({form}: any) => {
       <Text
         bgClip="text"
         bgGradient={
-          "linear-gradient(93deg, rgba(120, 40, 200, 0.27) 0.58%, #006FEE 99.87%)"
+          "linear-gradient(93deg, #BD36CD 0.58%, #00CBFE 99.87%)"
         }
         fontWeight={700}
         fontSize={"16px"}

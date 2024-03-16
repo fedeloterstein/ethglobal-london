@@ -9,13 +9,13 @@ import React from "react";
 export default function Congrats() {
   return (
     <Layout>
-      <Stack w={"100%"} height={"100%"} alignItems={"center"} gap={8} mt={8}>
+      <Stack w={"100%"} height={"100vh"} alignItems={"center"} gap={8} mt={8}>
         <LogoHome />
 
         <Image alt="" src={"/images/congrants.png"} width={375} height={342} />
 
         <Stack>
-          <Heading fontSize={"36px"} fontWeight={700}>
+          <Heading fontSize={"36px"} fontWeight={700} color={'white'}>
             🤝 Thanks for build a
           </Heading>
           <Heading
@@ -23,7 +23,7 @@ export default function Congrats() {
             fontWeight={700}
             bgClip="text"
             bgGradient={
-              "linear-gradient(93deg, rgba(120, 40, 200, 0.27) 0.58%, #006FEE 99.87%)"
+              "linear-gradient(93deg, #BD36CD 0.58%, #00CBFE 99.87%)"
             }
           >
             Fair & Better World

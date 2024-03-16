@@ -25,7 +25,7 @@ export const ReviewList = ({form}: any) => {
           align={"center"}
           justify={"center"}
           bgGradient={
-            "linear-gradient(93deg, rgba(120, 40, 200, 0.27) 0.58%, #006FEE 99.87%)"
+            "linear-gradient(93deg, #BD36CD 0.58%, #00CBFE 99.87%)"
           }
         >
           <GramerlyIcon />
@@ -40,7 +40,7 @@ export const ReviewList = ({form}: any) => {
           <Text
             bgClip="text"
             bgGradient={
-              "linear-gradient(93deg, rgba(120, 40, 200, 0.27) 0.58%, #006FEE 99.87%)"
+              "linear-gradient(93deg, #BD36CD 0.58%, #00CBFE 99.87%)"
             }
             fontWeight={700}
             fontSize={'16px'}
@@ -54,7 +54,7 @@ export const ReviewList = ({form}: any) => {
           <Text
             bgClip="text"
             bgGradient={
-              "linear-gradient(93deg, rgba(120, 40, 200, 0.27) 0.58%, #006FEE 99.87%)"
+              "linear-gradient(93deg, #BD36CD 0.58%, #00CBFE 99.87%)"
             }
             fontWeight={700}
             fontSize={'16px'}
@@ -67,7 +67,7 @@ export const ReviewList = ({form}: any) => {
             fontSize={'16px'}>Pool Insurance company </Text>
           <Text  bgClip="text"
             bgGradient={
-              "linear-gradient(93deg, rgba(120, 40, 200, 0.27) 0.58%, #006FEE 99.87%)"
+              "linear-gradient(93deg, #BD36CD 0.58%, #00CBFE 99.87%)"
             }
             fontWeight={700}
             fontSize={'16px'}>

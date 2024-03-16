@@ -7,18 +7,18 @@ import Link from "next/link";
 
 export const BenefitsView = ({form}: any) => {
   return (
-    <Stack alignItems={"center"} w={"100%"} gap={8} pb={10}>
+    <Stack alignItems={"center"} h={"100%"} w={"100%"} gap={8} pb={10}>
       <Stack justify={"center"} pt={10} pb={10} textAlign={"center"}>
-        <Heading fontWeight={700} fontSize={"24px"} color={"black"}>
+        <Heading fontWeight={700} fontSize={"24px"} color={"white"}>
           🌱 Empower Fair Hiring
         </Heading>
-        <Text fontWeight={400} fontSize={"14px"} color={"black"}>
+        <Text fontWeight={400} fontSize={"14px"} color={"white"}>
           We created a renewable unemployment insurance fund that generates
           benefits that prioritize employee wellbeing and social impact.
         </Text>
       </Stack>
       <ReviewList form={form} />
-      <Text color={'black'} alignSelf={'start'} fontSize={'16px'} fontWeight={700}>Select Benefits</Text>
+      <Text color={'white'} alignSelf={'start'} fontSize={'16px'} fontWeight={700}>Select Benefits</Text>
       <Stack w={'100%'}>
         <BenefitsCard imageOne={'/coins/celo.png'} imageTwo={'/coins/Avatar.png'} title={'Plant a tree'}/>
         <BenefitsCard imageOne={'/coins/chiliz.png'} imageTwo={'/coins/sport.png'} title={'Ticket Sport'}/>
