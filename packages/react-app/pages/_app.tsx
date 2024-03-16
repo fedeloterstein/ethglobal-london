@@ -8,7 +8,7 @@ function App({ Component, pageProps }: AppProps) {
   return (
     <ChakraProvider>
       <ThirdwebProvider
-        activeChain={ArbitrumSepolia}
+        activeChain={CeloAlfajoresTestnet}
         clientId={process.env.NEXT_PUBLIC_TEMPLATE_CLIENT_ID}
       >
         <Stack background={'black'} h={'100%'}>

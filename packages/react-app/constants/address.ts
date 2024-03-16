@@ -10,4 +10,4 @@ const contracts = {
   arbitrum: "0x413Ac8a5b64392306cf4D44BC6c526Bc42070a3A"
 };
 
-export const MAIN_CONTRACT = contracts.arbitrum;
+export const MAIN_CONTRACT = contracts.celo;
