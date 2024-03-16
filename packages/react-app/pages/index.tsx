@@ -4,14 +4,15 @@ import { LogoHome } from "@/components/assets/icons/LogoHome";
 import Image from "next/image";
 import { GramerlyIcon } from "@/components/assets/icons/GramerlyIcon";
 import Link from "next/link";
+import { Layout } from "@/components/Layout";
 
 export default function Home() {
   return (
-    <Container maxW="container.sm">
+    <Layout>
       <Stack w={"100%"} height={"100%"} alignItems={"center"} gap={8} mt={8}>
         <LogoHome />
         <Stack>
-          <Heading fontSize={"36px"} fontWeight={700}>
+          <Heading fontSize={"36px"} fontWeight={700} color={'white'}>
             🤝 Welcome to{" "}
           </Heading>
           <Heading
@@ -26,10 +27,10 @@ export default function Home() {
           </Heading>
         </Stack>
         <Image alt="" src={"/images/imgLanding.png"} width={375} height={342} />
-        <Button as={Link} href={'/dashboard'} leftIcon={<GramerlyIcon />}  variant="solid" borderRadius={'100px'} color={'white'} background={'black'}>
+        <Button as={Link} href={'/dashboard'} leftIcon={<GramerlyIcon />}  variant="solid" borderRadius={'100px'} color={'black'} background={'white'}>
           Unlock Fair Hiring
         </Button>
       </Stack>
-    </Container>
+    </Layout>
   );
 }

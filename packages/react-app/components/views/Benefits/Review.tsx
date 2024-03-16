@@ -2,8 +2,9 @@ import { HStack, Stack, Text } from "@chakra-ui/react";
 import React from "react";
 import { GramerlyIcon } from "@/components/assets/icons/GramerlyIcon";
 import { convertFormat } from "@/utils/convertFormat";
+import { MAIN_CONTRACT } from "@/constants/address";
 
-export const ReviewList = () => {
+export const ReviewList = ({form}: any) => {
   return (
     <Stack
       background={"white"}
@@ -47,7 +48,7 @@ export const ReviewList = () => {
             Unemployment cover
           </Text>
           <Text   fontWeight={700}
-            fontSize={'24px'}>£35,000</Text>
+            fontSize={'24px'}>     {form.amount}</Text>
         </HStack>
         <HStack justify={'space-between'}>
           <Text
@@ -60,8 +61,6 @@ export const ReviewList = () => {
           >
             Estimate APY 4.12% Monthly
           </Text>
-          <Text   fontWeight={700}
-            fontSize={'24px'}>£1442</Text>
         </HStack>
         <HStack justify={'space-between'}>
           <Text   fontWeight={700}
@@ -72,7 +71,7 @@ export const ReviewList = () => {
             }
             fontWeight={700}
             fontSize={'16px'}>
-            {convertFormat("0xf3789C63EA8856F57EfF0D346Acf5a6F5acD0cDE")}
+            {convertFormat(MAIN_CONTRACT)}
           </Text>
         </HStack>
       </Stack>

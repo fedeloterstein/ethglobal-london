@@ -17,7 +17,7 @@ export const BenefitsView = ({form}: any) => {
           benefits that prioritize employee wellbeing and social impact.
         </Text>
       </Stack>
-      <ReviewList />
+      <ReviewList form={form} />
       <Text color={'black'} alignSelf={'start'} fontSize={'16px'} fontWeight={700}>Select Benefits</Text>
       <Stack w={'100%'}>
         <BenefitsCard imageOne={'/coins/celo.png'} imageTwo={'/coins/Avatar.png'} title={'Plant a tree'}/>

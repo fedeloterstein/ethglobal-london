@@ -2,7 +2,7 @@ import type { AppProps } from "next/app";
 import "../styles/globals.css";
 import { ThirdwebProvider } from "@thirdweb-dev/react";
 import { CeloAlfajoresTestnet } from "@thirdweb-dev/chains";
-import { ChakraProvider } from "@chakra-ui/react";
+import { ChakraProvider, Stack } from "@chakra-ui/react";
 
 function App({ Component, pageProps }: AppProps) {
   return (
@@ -11,7 +11,10 @@ function App({ Component, pageProps }: AppProps) {
         activeChain={CeloAlfajoresTestnet}
         clientId={process.env.NEXT_PUBLIC_TEMPLATE_CLIENT_ID}
       >
+        <Stack background={'black'} h={'100vh'}>
+
         <Component {...pageProps} />
+        </Stack>
       </ThirdwebProvider>
     </ChakraProvider>
   );

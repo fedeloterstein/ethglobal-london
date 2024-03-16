@@ -4,13 +4,15 @@ import { Review } from "./Review";
 import { Web3Button, useContract } from "@thirdweb-dev/react";
 import { parseEther } from "viem";
 import { MAIN_CONTRACT } from "@/constants/address";
+import { useRouter } from "next/router";
+
 
 
 const tokenAddress = "0x9Fa56e2A9d7563246f2FB898B9f10C9cf41661C1";
 
 
 export const SignView = ({ form }: any) => {
-
+  const router = useRouter()
   const { contract: tokenContract} =
 useContract(form.currency, "token");
 
@@ -36,6 +38,7 @@ useContract(form.currency, "token");
           
           await contract.call("registerEmployee", ['0xf3789C63EA8856F57EfF0D346Acf5a6F5acD0cDE', parseEther('1'), 'juan', form.currency, form.scopeOfWork]);
         }}
+        onSuccess={() => router.push('/congrats')}
       >
       Sign Contract
       </Web3Button>

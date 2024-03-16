@@ -7,7 +7,6 @@ import React from "react";
 
 export default function Sign() {
   const router = useRouter();
-  console.log("aca", router.query);
 
   return (
     <Layout>
